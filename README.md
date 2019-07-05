@@ -31,3 +31,4 @@ Current Goals:
 2. add animation
 3. Add trajectory
  
+PS: I am very-very new to open source, so do not expect a lot from me
