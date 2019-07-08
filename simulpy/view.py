@@ -4,24 +4,32 @@ import plotly.graph_objs as go
 import copy
 
 
-def plotrobot(robot):
+def plotrobot(robobj):
 
+    data = plot_initiatilize(robobj)
+
+    fig = go.Figure(data=data, layout={})
+    plotly.offline.iplot(fig)
+
+
+def plot_initiatilize(robobj):
     plotly.offline.init_notebook_mode(connected=True)
 
-    print(robot.coordmat)
+    print(robobj.coordmat)
     i = 0
     initj = 0
-    while i < robot.jointno:
-        x = np.linspace(robot.coordmat[i][0], robot.coordmat[i+1][0])
-        y = np.linspace(robot.coordmat[i][1], robot.coordmat[i+1][1])
-        z = np.linspace(robot.coordmat[i][2], robot.coordmat[i+1][2])
+
+    lenx = len(np.linspace(robobj.coordmat[i][0], robobj.coordmat[i+1][0]))
+    x_array = np.zeros(lenx*3)
+    y_array = np.zeros(lenx*3)
+    z_array = np.zeros(lenx*3)
+
+    while i < robobj.jointno:
+        x = np.linspace(robobj.coordmat[i][0], robobj.coordmat[i+1][0])
+        y = np.linspace(robobj.coordmat[i][1], robobj.coordmat[i+1][1])
+        z = np.linspace(robobj.coordmat[i][2], robobj.coordmat[i+1][2])
         lenx = len(x)
         j = copy.deepcopy(initj)
-
-        if i == 0:
-            x_array = np.zeros(3*lenx)
-            y_array = np.zeros(3*lenx)
-            z_array = np.zeros(3*lenx)
 
         while j < lenx + initj:
             x_array[j] = x[j-initj]
@@ -45,14 +53,14 @@ def plotrobot(robot):
 
     i = 0
 
-    jointx = np.zeros(robot.jointno + 1)
-    jointy = np.zeros(robot.jointno + 1)
-    jointz = np.zeros(robot.jointno + 1)
+    jointx = np.zeros(robobj.jointno + 1)
+    jointy = np.zeros(robobj.jointno + 1)
+    jointz = np.zeros(robobj.jointno + 1)
 
-    while i < robot.jointno + 1:
-        jointx[i] = robot.coordmat[i][0]
-        jointy[i] = robot.coordmat[i][1]
-        jointz[i] = robot.coordmat[i][2]
+    while i < robobj.jointno + 1:
+        jointx[i] = robobj.coordmat[i][0]
+        jointy[i] = robobj.coordmat[i][1]
+        jointz[i] = robobj.coordmat[i][2]
         i = i + 1
 
     joint = go.Scatter3d(
@@ -67,6 +75,5 @@ def plotrobot(robot):
     )
 
     data = [armvec, joint]
-    fig = go.Figure(data=data, layout={})
 
-    plotly.offline.iplot(fig)
+    return data
