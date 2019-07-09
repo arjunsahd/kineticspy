@@ -26,4 +26,9 @@ class Robot(object):
             i = i + 1
 
         self.coordmat = copy.deepcopy(self.initcoordmat)
-        self.cureffpos = copy.copy(self.coordmat[self.jointno])
+
+class Robopos(object):
+
+     def __init__(self, armvec, joints):
+         self.armvec = armvec
+         self.joints = joints
