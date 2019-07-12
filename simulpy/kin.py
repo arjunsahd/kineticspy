@@ -14,18 +14,13 @@ def fwd(robobj, thetalist):
         j = i - 1
         while j > -1:
             robobj.coordmat[i] = robobj.coordmat[i].__sub__(robobj.initcoordmat[j])
-            coordmatcp = copy.deepcopy(robobj.coordmat)
-            robobj.coordmat[i][0] = rotmat[j][0][0]*coordmatcp[i][0] + rotmat[j][0][1]*coordmatcp[i][1] + \
-                                    rotmat[j][0][2]*coordmatcp[i][2]
-            robobj.coordmat[i][1] = rotmat[j][1][0]*coordmatcp[i][0] + rotmat[j][1][1]*coordmatcp[i][1] + \
-                                    rotmat[j][1][2]*coordmatcp[i][2]
-            robobj.coordmat[i][2] = rotmat[j][2][0]*coordmatcp[i][0] + rotmat[j][2][1]*coordmatcp[i][1] + \
-                                    rotmat[j][2][2]*coordmatcp[i][2]
+            robobj.coordmat[i] = rotmat[j].dot(robobj.coordmat[i])
             robobj.coordmat[i] = robobj.coordmat[i].__add__(robobj.initcoordmat[j])
             j = j - 1
         i = i + 1
 
     return robobj.coordmat
+
 
 def rotation_matrix(robobj, thetalist):
 
@@ -85,28 +80,32 @@ def jacobian(robobj, thetalist):
     rotmat = rotation_matrix(robobj, thetalist)
     rotmatdif = rotation_matrix_dif(robobj, thetalist)
 
-    jparts = np.zeros((robobj.nopoint, 3, 3))
+    jparts = np.zeros((robobj.jointno, 3))
+    jacob = np.zeros((robobj.jointno, 3))
 
     i = 0
     while i < robobj.jointno:
-        jparts[i] = [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
+        jparts[i] = robobj.initcoordmat[i+1]
         i = i + 1
 
     i = 0
     while i < robobj.jointno:
-        k = 0
-        while k < robobj.jointno:
-            if k == i:
-                jparts[i] = np.dot(rotmatdif[k], jparts[i])
-            else:
-                jparts[i] = np.dot(rotmat[k], jparts[i])
-            k = k + 1
-        i = i + 1
 
-    jacob = np.zeros(3, 3)
-    i = 0
-    while i < robobj.jointno:
-        jacob = jacob.__add__(jparts[i])
+        j = 0
+        while j < robobj.jointno:
+            k = j
+            while k > -1:
+                jparts[j] = jparts[j].__sub__(robobj.initcoordmat[k])
+                if k == i:
+                    jparts[j] = rotmatdif[k].dot(jparts[j])
+                else:
+                    jparts[j] = rotmat[k].dot(jparts[j])
+                jparts[j] = jparts[j].__add__(robobj.initcoordmat[k])
+
+                k = k - 1
+            j = j + 1
+
+        jacob = jacob.__add__(jparts)
         i = i + 1
 
     return jacob
