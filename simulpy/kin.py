@@ -108,4 +108,29 @@ def jacobian(robobj, thetalist):
         jacob = jacob.__add__(jparts)
         i = i + 1
 
-    return jacob
+    return jacob[robobj.jointno - 1]
+
+
+def inv(robobj, pos, thetaguess, er):
+    found = 0
+    ind = robobj.jointno
+    i = 0
+
+    while found == 0:
+        g1 = fwd(robobj,thetaguess)
+        jac = jacobian(robobj,thetaguess)
+
+        print(g1[ind])
+
+        if math.sqrt( (g1[ind][0] - pos[0])**2 + (g1[ind][1] - pos[1])**2 + (g1[ind][2] - pos[2])**2) < er:
+            found = 1
+        elif i > 10:
+            found = 2
+        else:
+            thetaguess[0] = thetaguess[0] + (g1[ind][0] - pos[0])/jac[0]
+            thetaguess[1] = thetaguess[1] + (g1[ind][1] - pos[1])/jac[1]
+            thetaguess[2] = thetaguess[2] + (g1[ind][2] - pos[2])/jac[2]
+        print(i)
+        i = i + 1
+
+    return thetaguess
