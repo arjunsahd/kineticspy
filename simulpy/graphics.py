@@ -3,8 +3,10 @@ import plotly
 import plotly.graph_objs as go
 import copy
 from simulpy.robobj import robot
+from simulpy import solidobj
 
 
+# return the layout to be used while plotting
 def plot_layout(robobj):
 
     #mlen = max(robobj.initcoordmat[robobj.jointno-1])
@@ -22,6 +24,7 @@ def plot_layout(robobj):
     return layout
 
 
+# initialize the plot for robot arm and return a Robopos(data type)
 def plot_initiatilize(robobj, positionmatrix):
 
     plotly.offline.init_notebook_mode(connected=True)
@@ -89,6 +92,7 @@ def plot_initiatilize(robobj, positionmatrix):
     return robopos
 
 
+# Making the trajectory in 3D in plotly from the trajectory matrix
 def trajectory_initialise(robobj, trajectorymat):
 
     nopoints = len(trajectorymat)
@@ -118,6 +122,7 @@ def trajectory_initialise(robobj, trajectorymat):
     return trac
 
 
+#plot the current position of the robot
 def plotcurrpos(robobj):
 
     robopos = plot_initiatilize(robobj, robobj.coordmat)
@@ -127,10 +132,13 @@ def plotcurrpos(robobj):
     plotly.offline.iplot(fig)
 
 
+#plot the trajectory with or without the robot arm to better visualize the trajectory
 def tracplot(robobj, trajectorymat, opt):
 
     plotly.offline.init_notebook_mode(connected=True)
 
+    # option 1 is to plot the robot arms along with the trajectory
+    # option 0 is to just plot the trajectory
     if opt == 1:
 
         robopos1 = plot_initiatilize(robobj, trajectorymat[0])
@@ -150,3 +158,13 @@ def tracplot(robobj, trajectorymat, opt):
         plotly.offline.iplot(fig)
 
 
+def plotvol(robobj,trajectorymat):
+
+    vol = solidobj.volcov(robobj,trajectorymat)
+    robopos1 = plot_initiatilize(robobj, trajectorymat[0])
+    robopos2 = plot_initiatilize(robobj, trajectorymat[len(trajectorymat) - 1])
+    layout = plot_layout(robobj)
+
+    data = [robopos1.armvec, robopos1.joints, robopos2.armvec, robopos2.joints, vol]
+    fig = go.Figure(data=data, layout=layout)
+    plotly.offline.iplot(fig)
