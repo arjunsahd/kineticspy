@@ -129,7 +129,7 @@ def plotcurrpos(robobj):
     data =[robopos.armvec, robopos.joints]
     layout = plot_layout(robobj)
     fig = go.Figure(data=data, layout=layout)
-    plotly.offline.iplot(fig)
+    return fig
 
 
 #plot the trajectory with or without the robot arm to better visualize the trajectory
@@ -147,7 +147,7 @@ def tracplot(robobj, trajectorymat, opt):
         layout = plot_layout(robobj)
         data = [robopos1.armvec, robopos1.joints, robopos2.armvec, robopos2.joints, trac]
         fig = go.Figure(data=data, layout=layout)
-        plotly.offline.iplot(fig)
+        return fig
 
     else:
 
@@ -155,7 +155,7 @@ def tracplot(robobj, trajectorymat, opt):
         data = [trac]
         layout = plot_layout(robobj)
         fig = go.Figure(data=data, layout=layout)
-        plotly.offline.iplot(fig)
+        return fig
 
 
 def plotvol(robobj,trajectorymat):
@@ -167,4 +167,4 @@ def plotvol(robobj,trajectorymat):
 
     data = [robopos1.armvec, robopos1.joints, robopos2.armvec, robopos2.joints, vol]
     fig = go.Figure(data=data, layout=layout)
-    plotly.offline.iplot(fig)
+    return fig
