@@ -24,11 +24,10 @@ Will work on that.
 Current func:
 1. Create Robot object
 2. Forward Dynamics
-3. Trajectory ploting for continuously varying and discretly varying joints
+3. Trajectory ploting for continuously varying joints
+4. Inverse Kinmatics 
 
 Current Goals:
-1. Add inverse kinematics
-2. add animation
-3. Add trajectory
+1. add animation
  
 PS: I am very-very new to open source, so do not expect a lot from me
