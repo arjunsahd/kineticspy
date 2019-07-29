@@ -58,14 +58,17 @@ def inv(robobj, coord):
     [x, y, z] = coord
     thetalist = np.zeros(3)
 
+    if math.sqrt(x**2 + y**2 + (z - robobj.lenmat[0][2])**2) > (robobj.lenmat[1][2] + robobj.lenmat[2][2]):
+        print("Not Possible")
+
     if(x == 0):
         thetalist[0] = 0
     else:
         thetalist[0] = math.atan(y / x)
+        if x < 0:
+            thetalist[0] = thetalist[0] + pi
 
     d = math.sqrt((z - robobj.lenmat[0][2])**2 + x**2 + y**2)
-
-
 
     thetalist[2] = pi - math.acos((robobj.lenmat[1][2]**2 + robobj.lenmat[2][2]**2 - d**2) /
                                     (2*robobj.lenmat[1][2]*robobj.lenmat[2][2]))
