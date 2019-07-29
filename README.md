@@ -30,4 +30,4 @@ Current func:
 Current Goals:
 1. add animation
  
-PS: I am very-very new to open source, so do not expect a lot from me
+PS: I am new to open source XD
