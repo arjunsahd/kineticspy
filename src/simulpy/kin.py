@@ -63,6 +63,7 @@ def inv(robobj, coord):
 
     if(x == 0):
         thetalist[0] = 0
+        return 0
     else:
         thetalist[0] = math.atan(y / x)
         if x < 0:

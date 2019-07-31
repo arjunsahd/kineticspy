@@ -46,3 +46,35 @@ def linetrac(robobj, pt1, pt2):
         i = i + 1
 
     return calctrajectorymat(thetamat, robobj)
+
+
+def viapts(robobj,mat):
+
+    x_arr = []
+    y_arr = []
+    z_arr = []
+
+    i = 0
+    while i < len(mat):
+        if(i == 0):
+            start = mat[i]
+            i = i + 1
+        else:
+            end = mat[i]
+            x = np.linspace(start[0], end[0], 10)
+            y = np.linspace(start[1], end[1], 10)
+            z = np.linspace(start[2], end[2], 10)
+            start = mat[i]
+            i = i + 1
+            x_arr = np.append(x_arr, x)
+            y_arr = np.append(y_arr, y)
+            z_arr = np.append(z_arr, z)
+
+    i = 0
+    thetamat = np.zeros((len(x_arr), 3))
+
+    while i < len(x_arr):
+        thetamat[i] = kin.inv(robobj, [x_arr[i], y_arr[i], z_arr[i]])
+        i = i + 1
+
+    return calctrajectorymat(thetamat, robobj)

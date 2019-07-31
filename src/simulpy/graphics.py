@@ -3,7 +3,7 @@ import plotly
 import plotly.graph_objs as go
 import copy
 from simulpy.robobj import robot
-from simulpy import solidobj
+from simulpy import solidobj, measure
 
 
 # return the layout to be used while plotting
