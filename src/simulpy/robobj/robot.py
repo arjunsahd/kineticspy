@@ -32,3 +32,13 @@ class Robopos(object):
      def __init__(self, armvec, joints):
          self.armvec = armvec
          self.joints = joints
+
+class body(object):
+
+    def __init__(self, data1, data2, data3, data4, data5, data6):
+        self.data1 = data1
+        self.data2 = data2
+        self.data3 = data3
+        self.data4 = data4
+        self.data5 = data5
+        self.data6 = data6

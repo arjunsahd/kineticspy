@@ -1,4 +1,4 @@
 Name of author
-Name and discription Issue  
+Name and discription of the issue
 Dependencies 
-Functions introduced
+List of Reviewers

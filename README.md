@@ -27,10 +27,12 @@ Current func:
 3. Trajectory ploting for continuously varying joints
 4. Inverse Kinmatics 
 5. Minimum Trajectory Potting i.e straight line
+6. Via Points Addition
 
 Current Goals:
 1. add animation
 2. Make the library suitable to be used using DH paramaeters
+3. Add various options for plotting Robot
  
 PS: I am new to open source XD
 

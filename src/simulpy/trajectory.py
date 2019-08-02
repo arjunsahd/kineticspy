@@ -42,7 +42,7 @@ def linetrac(robobj, pt1, pt2):
     thetamat = np.zeros((len(x), 3))
 
     while i < len(x):
-        thetamat[i] = kin.inv(robobj, [x[i], y[i], z[i]])
+        thetamat[i] = kin.inv(rotbobj, [x[i], y[i], z[i]])
         i = i + 1
 
     return calctrajectorymat(thetamat, robobj)
