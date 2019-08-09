@@ -1,5 +1,4 @@
 import numpy as np
-import plotly
 import plotly.graph_objs as go
 from simulpy.robobj import robot
 
@@ -32,13 +31,15 @@ def volcov(robobj, trajectorymat):
                    opacity=0.8,
                    color='rgba(244,22,100,0.6)'
                   )
-    return vol
+
+    data = [vol]
+
+    return data
 
 
 #needed fixing future project
 def obstacle(l, b, h, pos):
 
-    plotly.offline.init_notebook_mode(connected=True)
     x_neg = pos[0] - l/2
     x_pos = pos[0] + l/2
 
@@ -124,6 +125,6 @@ def obstacle(l, b, h, pos):
                       color ='red',
                       opacity = 0.5)
 
-    body1 = robot.body(data1, data2, data3, data4, data5, data6)
+    data = [data1, data2, data3, data4, data5, data6]
 
-    return body1
+    return data

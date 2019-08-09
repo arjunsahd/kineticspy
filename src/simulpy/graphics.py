@@ -2,12 +2,10 @@ import numpy as np
 import plotly
 import plotly.graph_objs as go
 import copy
-from simulpy.robobj import robot
-from simulpy import solidobj, measure
 
 
 # return the layout to be used while plotting
-def plot_layout(robobj):
+def plot_layout():
 
     #mlen = max(robobj.initcoordmat[robobj.jointno-1])
 
@@ -24,10 +22,15 @@ def plot_layout(robobj):
     return layout
 
 
-# initialize the plot for robot arm and return a Robopos(data type)
-def plot_initiatilize(robobj, positionmatrix):
-
+def plot( data):
     plotly.offline.init_notebook_mode(connected=True)
+    layout = plot_layout()
+    fig = go.Figure(data=data, layout=layout)
+    return fig
+
+
+# initialize the plot for robot arm and return a Robopos(data type)
+def position(robobj, positionmatrix):
 
     i = 0
     initj = 0
@@ -86,128 +89,13 @@ def plot_initiatilize(robobj, positionmatrix):
             width=2
         )
     )
+    data = [armvec, joints]
 
-    robopos = robot.Robopos(armvec, joints)
+    return data
 
-    return robopos
-
-
-# Making the trajectory in 3D in plotly from the trajectory matrix
-def trajectory_initialise(robobj, trajectorymat):
-
-    nopoints = len(trajectorymat)
-
-    x_array = np.zeros(nopoints)
-    y_array = np.zeros(nopoints)
-    z_array = np.zeros(nopoints)
-
-    i = 0
-    while i < nopoints:
-        x_array[i] = trajectorymat[i][robobj.jointno][0]
-        y_array[i] = trajectorymat[i][robobj.jointno][1]
-        z_array[i] = trajectorymat[i][robobj.jointno][2]
-        i = i + 1
-
-    trac = go.Scatter3d(
-        x=x_array, y=y_array, z=z_array,
-        marker=dict(
-            size=5,
-        ),
-        line=dict(
-            color='#ff7f0e',
-            width=2
-        )
-    )
-
-    return trac
-
-# Making the trajectory  for jointsin 3D in plotly from the trajectory matrix
-def addtrack(robobj, trajectorymat):
-
-    nopoints = len(trajectorymat)
-
-    x_array = np.zeros(nopoints)
-    y_array = np.zeros(nopoints)
-    z_array = np.zeros(nopoints)
-
-    i = 0
-    while i < nopoints:
-        x_array[i] = trajectorymat[i][robobj.jointno - 1][0]
-        y_array[i] = trajectorymat[i][robobj.jointno - 1][1]
-        z_array[i] = trajectorymat[i][robobj.jointno - 1][2]
-        i = i + 1
-
-    trac = go.Scatter3d(
-        x=x_array, y=y_array, z=z_array,
-        marker=dict(
-            size=5,
-        ),
-        line=dict(
-            color='#ff7f0e',
-            width=2
-        )
-    )
-
-    return trac
 
 #plot the current position of the robot
-def plotcurrpos(robobj):
+def current_position(robobj):
+    data = plot_initiatilize(robobj, robobj.coordmat)
+    return data
 
-    robopos = plot_initiatilize(robobj, robobj.coordmat)
-    data =[robopos.armvec, robopos.joints]
-    layout = plot_layout(robobj)
-    fig = go.Figure(data=data, layout=layout)
-    return fig
-
-
-#plot the trajectory with or without the robot arm to better visualize the trajectory
-def tracplot(robobj, trajectorymat, opt):
-
-    plotly.offline.init_notebook_mode(connected=True)
-
-    # option 1 is to plot the robot arms along with the trajectory
-    # option 0 is to just plot the trajectory
-    if opt == 1:
-
-        robopos1 = plot_initiatilize(robobj, trajectorymat[0])
-        robopos2 = plot_initiatilize(robobj, trajectorymat[len(trajectorymat) - 1])
-        trac = trajectory_initialise(robobj, trajectorymat)
-        layout = plot_layout(robobj)
-        data = [robopos1.armvec, robopos1.joints, robopos2.armvec, robopos2.joints, trac]
-        fig = go.Figure(data=data, layout=layout)
-        return fig
-
-    else:
-
-        trac = trajectory_initialise(robobj, trajectorymat)
-        data = [trac]
-        layout = plot_layout(robobj)
-        fig = go.Figure(data=data, layout=layout)
-        return fig
-
-
-def plotvol(robobj,trajectorymat):
-
-    vol = solidobj.volcov(robobj,trajectorymat)
-    robopos1 = plot_initiatilize(robobj, trajectorymat[0])
-    robopos2 = plot_initiatilize(robobj, trajectorymat[len(trajectorymat) - 1])
-    layout = plot_layout(robobj)
-    trac = trajectory_initialise(robobj, trajectorymat)
-    trac2 = addtrack(robobj, trajectorymat)
-
-    data = [robopos1.armvec, robopos1.joints, robopos2.armvec, robopos2.joints, vol, trac, trac2]
-    fig = go.Figure(data=data, layout=layout)
-    return fig
-
-
-def plotobs(robobj, l, b, h, pos):
-
-    robo = plot_initiatilize(robobj, robobj.coordmat)
-    cube = solidobj.obstacle(l, b, h, pos)
-    layout = plot_layout(robobj)
-
-    data = [cube.data1, cube.data2, cube.data3, cube.data4, cube.data5,
-            cube.data6, robo.armvec, robo.joints]
-
-    fig = go.Figure(data=data, layout=layout)
-    return fig

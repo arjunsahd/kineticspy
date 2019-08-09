@@ -1,6 +1,6 @@
 import numpy as np
 from simulpy import kin
-
+import plotly.graph_objs as go
 
 # create the matrix to plot the robot arm
 def calctrajectorymat(thetamat, robobj):
@@ -42,7 +42,7 @@ def linetrac(robobj, pt1, pt2):
     thetamat = np.zeros((len(x), 3))
 
     while i < len(x):
-        thetamat[i] = kin.inv(rotbobj, [x[i], y[i], z[i]])
+        thetamat[i] = kin.inv(robobj, [x[i], y[i], z[i]])
         i = i + 1
 
     return calctrajectorymat(thetamat, robobj)
@@ -78,3 +78,69 @@ def viapts(robobj,mat):
         i = i + 1
 
     return calctrajectorymat(thetamat, robobj)
+
+
+# Making the trajectory in 3D in plotly from the trajectory matrix
+def trajectory_end(robobj, trajectorymat):
+
+    nopoints = len(trajectorymat)
+
+    x_array = np.zeros(nopoints)
+    y_array = np.zeros(nopoints)
+    z_array = np.zeros(nopoints)
+
+    i = 0
+    while i < nopoints:
+        x_array[i] = trajectorymat[i][robobj.jointno][0]
+        y_array[i] = trajectorymat[i][robobj.jointno][1]
+        z_array[i] = trajectorymat[i][robobj.jointno][2]
+        i = i + 1
+
+    trac = go.Scatter3d(
+        x=x_array, y=y_array, z=z_array,
+        marker=dict(
+            size=5,
+        ),
+        line=dict(
+            color='#ff7f0e',
+            width=2
+        )
+    )
+
+    data = [trac]
+
+    return data
+
+
+# Making the trajectory  for joints in 3D in plotly from the trajectory matrix
+def trajectory_joints(robobj, trajectorymat):
+
+    nopoints = len(trajectorymat)
+
+    x_array = np.zeros(nopoints)
+    y_array = np.zeros(nopoints)
+    z_array = np.zeros(nopoints)
+
+    i = 0
+    while i < nopoints:
+        x_array[i] = trajectorymat[i][robobj.jointno - 1][0]
+        y_array[i] = trajectorymat[i][robobj.jointno - 1][1]
+        z_array[i] = trajectorymat[i][robobj.jointno - 1][2]
+        i = i + 1
+
+    trac = go.Scatter3d(
+        x=x_array, y=y_array, z=z_array,
+        marker=dict(
+            size=5,
+        ),
+        line=dict(
+            color='#ff7f0e',
+            width=2
+        )
+    )
+
+    data = [trac]
+
+    return data
+
+
