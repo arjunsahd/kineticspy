@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="simulpy-Kaneki99",
+    name="simulpy",
     version="0.0.1",
     author="Arjun Sahdev",
     author_email="arjunsahdev13@gmail.com",
