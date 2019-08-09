@@ -5,7 +5,7 @@ import math
 pi = math.pi
 
 
-#function to perform forward kinematics of open chain robot
+# function to perform forward kinematics of open chain robot
 def fwd(robobj, thetalist):
 
     rotmat = rotation_matrix(robobj, thetalist)

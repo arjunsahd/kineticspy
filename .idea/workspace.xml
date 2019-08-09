@@ -2,8 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3f147a8-053e-4b15-88a1-73d022ecb76c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pull_request_template.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.ipynb_checkpoints/Declare_Robot-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.ipynb_checkpoints/Forward_Kinematics-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.ipynb_checkpoints/Inverse_Kinematics-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.ipynb_checkpoints/Shortest_Trajectory-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.ipynb_checkpoints/Test_FIle-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.ipynb_checkpoints/Trajectory_Genration-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simulpy/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simulpy/graphics.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simulpy/kin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simulpy/measure.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simulpy/robobj/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simulpy/robobj/robot.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simulpy/solidobj.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simulpy/trajectory.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trial.ipynb" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,89 +31,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simulpy/robobj/robot.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="56" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simulpy/solidobj.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simulpy/graphics.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/setup.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simulpy/robobj/__init__.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simulpy/trajectory.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1560">
-              <caret line="104" column="28" selection-start-line="104" selection-start-column="28" selection-end-line="104" selection-end-column="28" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="15">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simulpy/kin.py">
+        <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="510">
+              <caret line="34" column="41" selection-start-line="34" selection-start-column="41" selection-end-line="34" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simulpy/measure.py">
+        <entry file="file://$PROJECT_DIR$/LICENSE">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="36" selection-start-line="36" selection-end-line="36" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="315">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Setup Script" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -113,19 +83,21 @@
         <option value="$PROJECT_DIR$/simulpy/solidobj.py" />
         <option value="$PROJECT_DIR$/simulpy/kin.py" />
         <option value="$PROJECT_DIR$/simulpy/robobj/__init__.py" />
-        <option value="$PROJECT_DIR$/setup.py" />
-        <option value="$PROJECT_DIR$/src/simulpy/kin.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/pull_request_template.md" />
-        <option value="$PROJECT_DIR$/src/simulpy/measure.py" />
         <option value="$PROJECT_DIR$/src/simulpy/robobj/robot.py" />
         <option value="$PROJECT_DIR$/src/simulpy/trajectory.py" />
         <option value="$PROJECT_DIR$/src/simulpy/solidobj.py" />
+        <option value="$PROJECT_DIR$/src/simulpy/measure.py" />
+        <option value="$PROJECT_DIR$/src/simulpy/kin.py" />
         <option value="$PROJECT_DIR$/src/simulpy/graphics.py" />
+        <option value="$PROJECT_DIR$/src/simulpy/__init__.py" />
+        <option value="$PROJECT_DIR$/LICENSE" />
+        <option value="$PROJECT_DIR$/setup.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="163" />
     <option name="y" value="70" />
     <option name="width" value="730" />
@@ -136,35 +108,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="simulpy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="simulpy" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simulpy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="simulpy" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simulpy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="simulpy" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="simulpy" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simulpy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="simulpy" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="simulpy" type="462c0819:PsiDirectoryNode" />
-              <item name="robobj" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
       <pane id="Course" />
     </panes>
   </component>
@@ -186,7 +130,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.solidobj (1)">
+  <component name="RunManager" selected="Python.setup">
     <configuration name="graphics" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="simulpy" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -294,8 +238,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.solidobj (1)" />
         <item itemvalue="Python.setup" />
+        <item itemvalue="Python.solidobj (1)" />
         <item itemvalue="Python.graphics" />
         <item itemvalue="Python.robot" />
         <item itemvalue="Python.solidobj" />
@@ -306,10 +250,10 @@
     <configuration />
   </component>
   <component name="ToolWindowManager">
-    <frame x="120" y="57" width="730" height="872" extended-state="0" />
+    <frame x="163" y="70" width="730" height="872" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21074964" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.49646392" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -359,6 +303,22 @@
     <entry file="file://$PROJECT_DIR$/simulpy/__init__.py" />
     <entry file="file://$PROJECT_DIR$/simulpy/robobj/__init__.py" />
     <entry file="file://$PROJECT_DIR$/simulpy/graphics.py" />
+    <entry file="file://$PROJECT_DIR$/pull_request_template.md" />
+    <entry file="file://$PROJECT_DIR$/src/simulpy/robobj/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/src/simulpy/measure.py" />
+    <entry file="file://$PROJECT_DIR$/src/simulpy/kin.py" />
+    <entry file="file://$PROJECT_DIR$/src/simulpy/robobj/robot.py" />
+    <entry file="file://$PROJECT_DIR$/src/simulpy/solidobj.py" />
+    <entry file="file://$PROJECT_DIR$/src/simulpy/graphics.py" />
+    <entry file="file://$PROJECT_DIR$/src/simulpy/trajectory.py" />
+    <entry file="file://$PROJECT_DIR$/src/simulpy/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -366,81 +326,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pull_request_template.md">
+    <entry file="file://$PROJECT_DIR$/LICENSE">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="315">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simulpy/measure.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simulpy/kin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simulpy/robobj/robot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="56" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simulpy/solidobj.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simulpy/trajectory.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1560">
-          <caret line="104" column="28" selection-start-line="104" selection-start-column="28" selection-end-line="104" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simulpy/graphics.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simulpy/robobj/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simulpy/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

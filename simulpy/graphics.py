@@ -94,7 +94,7 @@ def position(robobj, positionmatrix):
     return data
 
 
-#plot the current position of the robot
+# plot the current position of the robot
 def current_position(robobj):
     data = position(robobj, robobj.coordmat)
     return data

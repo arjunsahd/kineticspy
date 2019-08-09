@@ -1,6 +1,5 @@
 import numpy as np
 import plotly.graph_objs as go
-from simulpy.robobj import robot
 
 def volcov(robobj, trajectorymat):
 

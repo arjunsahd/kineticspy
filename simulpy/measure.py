@@ -1,6 +1,6 @@
 import numpy as np
 from itertools import product
-from simulpy import kin
+from . import kin
 import plotly.graph_objs as go
 
 

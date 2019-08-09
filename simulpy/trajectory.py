@@ -1,5 +1,5 @@
 import numpy as np
-from simulpy import kin
+from . import kin
 import plotly.graph_objs as go
 
 # create the matrix to plot the robot arm
