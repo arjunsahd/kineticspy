@@ -1,12 +1,12 @@
 Metadata-Version: 2.1
-Name: simulpy
+Name: kineticspy
 Version: 0.0.1
 Summary: A small package for robot simulation
 Home-page: https://github.com/Kaneki99/simulpy
 Author: Arjun Sahdev
 Author-email: arjunsahdev13@gmail.com
 License: UNKNOWN
-Description: # simulpy
+Description: # kineticspy
         Simulation tool for robotics
         
         Robotics is a very vast branch of engineering involoving computer, mechanical and electrical engineering.

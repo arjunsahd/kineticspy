@@ -1,0 +1,14 @@
+README.md
+setup.py
+kineticspy/__init__.py
+kineticspy/graphics.py
+kineticspy/kin.py
+kineticspy/measure.py
+kineticspy/solidobj.py
+kineticspy/trajectory.py
+kineticspy.egg-info/PKG-INFO
+kineticspy.egg-info/SOURCES.txt
+kineticspy.egg-info/dependency_links.txt
+kineticspy.egg-info/top_level.txt
+kineticspy/robobj/__init__.py
+kineticspy/robobj/robot.py
