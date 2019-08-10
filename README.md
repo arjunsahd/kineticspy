@@ -1,6 +1,9 @@
 # kineticspy
 Simulation tool for robotics
 
+#Installation
+pip install kineticspy
+
 Robotics is a very vast branch of engineering involoving computer, mechanical and electrical engineering.
 
 While there are many libraries available online for robotics. They are not that easy to use for beginners.
