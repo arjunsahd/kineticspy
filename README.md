@@ -1,5 +1,6 @@
 # kineticspy
 Simulation tool for robotics
+Open nbviewer, if graphics are not loaded on the webpage. This is because of the size of graphics is too large to upload.
 
 ## Installation
 pip install kineticspy
