@@ -7,22 +7,18 @@ import copy
 # return the layout to be used while plotting
 def plot_layout():
 
-    #mlen = max(robobj.initcoordmat[robobj.jointno-1])
+    # mlen = max(robobj.initcoordmat[robobj.jointno-1])
 
     layout = go.Layout(
-
-                        scene = dict(
-                        xaxis = dict(
-                            range = [-6, 6],),
-                        yaxis = dict(
-                            range = [-6, 6],),
-                        zaxis = dict(
-                            range = [-6, 6],),),
+                        scene=dict(
+                            xaxis=dict(range=[-6, 6],),
+                            yaxis=dict(range=[-6, 6],),
+                            zaxis=dict(range=[-6, 6],),),
                       )
     return layout
 
 
-def plot( data):
+def plot(data):
     plotly.offline.init_notebook_mode(connected=True)
     layout = plot_layout()
     fig = go.Figure(data=data, layout=layout)
@@ -98,4 +94,3 @@ def position(robobj, positionmatrix):
 def current_position(robobj):
     data = position(robobj, robobj.coordmat)
     return data
-

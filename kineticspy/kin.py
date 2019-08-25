@@ -25,7 +25,7 @@ def fwd(robobj, thetalist):
     return robobj.coordmat
 
 
-#create rotation matrix for each joint
+# create rotation matrix for each joint
 def rotation_matrix(robobj, thetalist):
 
     i = 0
@@ -61,7 +61,7 @@ def inv(robobj, coord):
     if math.sqrt(x**2 + y**2 + (z - robobj.lenmat[0][2])**2) > (robobj.lenmat[1][2] + robobj.lenmat[2][2]):
         print("Not Possible")
 
-    if(x == 0):
+    if x == 0:
         thetalist[0] = 0
         return 0
     else:
@@ -71,8 +71,8 @@ def inv(robobj, coord):
 
     d = math.sqrt((z - robobj.lenmat[0][2])**2 + x**2 + y**2)
 
-    thetalist[2] = pi - math.acos((robobj.lenmat[1][2]**2 + robobj.lenmat[2][2]**2 - d**2) /
-                                    (2*robobj.lenmat[1][2]*robobj.lenmat[2][2]))
+    thetalist[2] = pi - math.acos((robobj.lenmat[1][2]**2 + robobj.lenmat[2][2]**2 - d**2)
+                                  / (2*robobj.lenmat[1][2]*robobj.lenmat[2][2]))
 
     theta = math.asin(robobj.lenmat[2][2] * math.sin(thetalist[2]) / d)
     thetalist[1] = math.acos((z - robobj.lenmat[0][2]) / d) - theta

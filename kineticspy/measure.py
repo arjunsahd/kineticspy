@@ -1,36 +1,57 @@
 import numpy as np
-from itertools import product
-from . import kin
+import math
 import plotly.graph_objs as go
+from itertools import product
 
 
-def work_space(robobj, limit1, limit2):
+def jacobcalc(robobj, orientation, joint_vel):
 
-    x_range = np.linspace(limit1[0], limit2[0])
-    y_range = np.linspace(limit1[1], limit2[1])
-    z_range = np.linspace(limit1[2], limit2[2])
+    jacob = np.zeros(3)
 
-    allpts = product(x_range, y_range, z_range)
-    print(allpts)
+    jacob[0] = -robobj.lenmat[1][2]*math.sin(orientation[0])*math.sin(orientation[1])*joint_vel[0]
+    -robobj.lenmat[2][2]*math.sin(orientation[0])*math.sin(orientation[1] + orientation[2])*joint_vel[0]
+    +robobj.lenmat[1][2]*math.cos(orientation[0])*math.cos(orientation[1])*joint_vel[1]
+    +robobj.lenmat[2][2]*math.cos(orientation[0])*math.cos(orientation[1] + orientation[2])*joint_vel[1]
+    +robobj.lenmat[2][2]*math.cos(orientation[0])*math.cos(orientation[1] + orientation[2])*joint_vel[2]
+
+    jacob[1] = robobj.lenmat[1][2]*math.cos(orientation[0])*math.sin(orientation[1])*joint_vel[0]
+    +robobj.lenmat[2][2]*math.cos(orientation[0])*math.sin(orientation[1] + orientation[2])*joint_vel[0]
+    +robobj.lenmat[1][2]*math.sin(orientation[0])*math.cos(orientation[1])*joint_vel[1]
+    +robobj.lenmat[2][2]*math.sin(orientation[0])*math.cos(orientation[1] + orientation[2])*joint_vel[1]
+    +robobj.lenmat[2][2]*math.sin(orientation[0])*math.cos(orientation[1] + orientation[2])*joint_vel[2]
+
+    jacob[2] = -robobj.lenmat[1][2]*math.sin(orientation[1])*joint_vel[1]
+    -robobj.lenmat[2][2]*math.sin(orientation[1] + orientation[2])*joint_vel[1]
+    -robobj.lenmat[2][2]*math.sin(orientation[1] + orientation[2])*joint_vel[2]
+
+    return jacob
+
+
+def vel_mani(robobj, orientation, max_joint_vel):
+
+    vel_joint1 = np.linspace(-max_joint_vel[0], max_joint_vel[0], 2)
+    vel_joint2 = np.linspace(-max_joint_vel[1], max_joint_vel[1], 2)
+    vel_joint3 = np.linspace(-max_joint_vel[2], max_joint_vel[2], 2)
+
+    b = vel_joint1, vel_joint2, vel_joint3
+    mat = list(product(*b))
+
+    siz = len(mat)
     i = 0
 
-    mat_x = np.zeros(2**robobj.jointno)
-    mat_y = np.zeros(2**robobj.jointno)
-    mat_z = np.zeros(2**robobj.jointno)
+    elipx = np.zeros(siz)
+    elipy = np.zeros(siz)
+    elipz = np.zeros(siz)
 
-    while i < 2**robobj.jointno:
-        m = kin.fwd(robobj, cp[i])
-        mat_x[i] = m[robobj.jointno][0]
-        mat_y[i] = m[robobj.jointno][1]
-        mat_z[i] = m[robobj.jointno][2]
+    while i < siz:
+        elip = jacobcalc(robobj, orientation, mat[i])
+        elipx[i] = elip[0]
+        elipy[i] = elip[1]
+        elipz[i] = elip[2]
         i = i + 1
 
-        vol = go.Mesh3d(x=mat_x,
-                   y=mat_y,
-                   z=mat_z,
-                   opacity=1,
-                   color='rgba(244,22,100,0.6)'
-                  )
-    return vol
+    end_velocity = go.Scatter3d(x=elipx, y=elipy, z=elipz,)
 
+    data = [end_velocity]
 
+    return data

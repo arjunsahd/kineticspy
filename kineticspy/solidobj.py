@@ -1,7 +1,8 @@
 import numpy as np
 import plotly.graph_objs as go
 
-def volcov(robobj, trajectorymat):
+
+def volcovered(robobj, trajectorymat):
 
     l = len(trajectorymat)
 

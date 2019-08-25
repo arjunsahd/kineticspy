@@ -2,6 +2,7 @@ import numpy as np
 from . import kin
 import plotly.graph_objs as go
 
+
 # create the matrix to plot the robot arm
 def calctrajectorymat(thetamat, robobj):
 
@@ -48,7 +49,7 @@ def linetrac(robobj, pt1, pt2):
     return calctrajectorymat(thetamat, robobj)
 
 
-def viapts(robobj,mat):
+def viapts(robobj, mat):
 
     x_arr = []
     y_arr = []
@@ -56,7 +57,7 @@ def viapts(robobj,mat):
 
     i = 0
     while i < len(mat):
-        if(i == 0):
+        if i == 0:
             start = mat[i]
             i = i + 1
         else:
@@ -142,5 +143,3 @@ def trajectory_joints(robobj, trajectorymat):
     data = [trac]
 
     return data
-
-
