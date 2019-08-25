@@ -1,8 +1,9 @@
 import numpy as np
 import math
+import plotly
 import plotly.graph_objs as go
-from itertools import product
-
+from numpy import linalg as LA
+from numpy import sin, cos, pi
 
 def jacobmat(robobj, theta):
 
@@ -26,31 +27,28 @@ def jacobmat(robobj, theta):
     return jacob
 
 
-def vel_mani(robobj, orientation, max_joint_vel):
+def vel_mani_elip(robobj, orientation):
 
-    vel_joint1 = np.linspace(-max_joint_vel[0], max_joint_vel[0], 2)
-    vel_joint2 = np.linspace(-max_joint_vel[1], max_joint_vel[1], 2)
-    vel_joint3 = np.linspace(-max_joint_vel[2], max_joint_vel[2], 2)
+    jacob = jacobmat(robobj, orientation)
+    a = np.dot(jacob, np.transpose(jacob))
+    eigen_val, eigen_vec = LA.eig(a)
 
-    b = vel_joint1, vel_joint2, vel_joint3
-    mat = list(product(*b))
+    phi = np.linspace(0, 2*pi)
+    theta = np.linspace(-pi/2, pi/2)
+    phi, theta=np.meshgrid(phi, theta)
 
-    siz = len(mat)
-    i = 0
+    x = cos(theta) * sin(phi) * eigen_val[0]
+    y = cos(theta) * cos(phi) * eigen_val[1]
+    z = sin(theta) * eigen_val[2]
 
-    elipx = np.zeros(siz)
-    elipy = np.zeros(siz)
-    elipz = np.zeros(siz)
+    plotly.offline.init_notebook_mode(connected=True)
 
-    while i < siz:
-        elip = jacobcalc(robobj, orientation, mat[i])
-        elipx[i] = elip[0]
-        elipy[i] = elip[1]
-        elipz[i] = elip[2]
-        i = i + 1
+    elip = go.Mesh3d(alphahull = 0,
+                    x= x.flatten(),
+                    y= y.flatten(),
+                    z= z.flatten(),
+                    )
 
-    end_velocity = go.Scatter3d(x=elipx, y=elipy, z=elipz,)
-
-    data = [end_velocity]
+    data = [elip]
 
     return data
