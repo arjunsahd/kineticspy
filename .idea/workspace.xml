@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dcfb28a7-c00e-4142-9702-d27e0e701509" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/.ipynb_checkpoints/trial-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/examples/.ipynb_checkpoints/trial-checkpoint.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/examples/trial.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/examples/trial.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kineticspy/graphics.py" beforeDir="false" afterPath="$PROJECT_DIR$/kineticspy/graphics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kineticspy/kin.py" beforeDir="false" afterPath="$PROJECT_DIR$/kineticspy/kin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kineticspy/measure.py" beforeDir="false" afterPath="$PROJECT_DIR$/kineticspy/measure.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kineticspy/solidobj.py" beforeDir="false" afterPath="$PROJECT_DIR$/kineticspy/solidobj.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kineticspy/trajectory.py" beforeDir="false" afterPath="$PROJECT_DIR$/kineticspy/trajectory.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

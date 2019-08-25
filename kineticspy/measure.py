@@ -4,25 +4,24 @@ import plotly.graph_objs as go
 from itertools import product
 
 
-def jacobcalc(robobj, orientation, joint_vel):
+def jacobmat(robobj, theta):
 
-    jacob = np.zeros(3)
+    jacob = np.zeros(shape=(3,3))
 
-    jacob[0] = -robobj.lenmat[1][2]*math.sin(orientation[0])*math.sin(orientation[1])*joint_vel[0]
-    -robobj.lenmat[2][2]*math.sin(orientation[0])*math.sin(orientation[1] + orientation[2])*joint_vel[0]
-    +robobj.lenmat[1][2]*math.cos(orientation[0])*math.cos(orientation[1])*joint_vel[1]
-    +robobj.lenmat[2][2]*math.cos(orientation[0])*math.cos(orientation[1] + orientation[2])*joint_vel[1]
-    +robobj.lenmat[2][2]*math.cos(orientation[0])*math.cos(orientation[1] + orientation[2])*joint_vel[2]
+    l2 = robobj.lenmat[1][2]
+    l3 = robobj.lenmat[2][2]
 
-    jacob[1] = robobj.lenmat[1][2]*math.cos(orientation[0])*math.sin(orientation[1])*joint_vel[0]
-    +robobj.lenmat[2][2]*math.cos(orientation[0])*math.sin(orientation[1] + orientation[2])*joint_vel[0]
-    +robobj.lenmat[1][2]*math.sin(orientation[0])*math.cos(orientation[1])*joint_vel[1]
-    +robobj.lenmat[2][2]*math.sin(orientation[0])*math.cos(orientation[1] + orientation[2])*joint_vel[1]
-    +robobj.lenmat[2][2]*math.sin(orientation[0])*math.cos(orientation[1] + orientation[2])*joint_vel[2]
+    jacob[0][0] = -l2*math.sin(theta[0])*math.sin(theta[1]) - l3*math.sin(theta[0])*math.sin(theta[1] + theta[2])
+    jacob[0][1] = l2*math.cos(theta[0])*math.cos(theta[1]) + l3*math.cos(theta[0])*math.cos(theta[1] + theta[2])
+    jacob[0][2] = l3*math.cos(theta[0])*math.cos(theta[1] + theta[2])
 
-    jacob[2] = -robobj.lenmat[1][2]*math.sin(orientation[1])*joint_vel[1]
-    -robobj.lenmat[2][2]*math.sin(orientation[1] + orientation[2])*joint_vel[1]
-    -robobj.lenmat[2][2]*math.sin(orientation[1] + orientation[2])*joint_vel[2]
+    jacob[1][0] = l2*math.cos(theta[0])*math.sin(theta[1]) + l3*math.cos(theta[0])*math.sin(theta[1] + theta[2])
+    jacob[1][1] = l2*math.sin(theta[0])*math.cos(theta[1]) + l3*math.sin(theta[0])*math.cos(theta[1] + theta[2])
+    jacob[1][2] = l3*math.sin(theta[0])*math.cos(theta[1] + theta[2])
+
+    jacob[2][0] = 0
+    jacob[2][1] = l3*math.sin(theta[1] + theta[2]) - l2*math.sin(theta[1])
+    jacob[2][2] = l3*math.sin(theta[1] + theta[2])
 
     return jacob
 
