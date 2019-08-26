@@ -1,6 +1,6 @@
 import numpy as np
 import math
-import plotly
+from . import kin
 import plotly.graph_objs as go
 from numpy import linalg as LA
 from numpy import sin, cos, pi
@@ -33,20 +33,33 @@ def vel_mani_elip(robobj, orientation):
     a = np.dot(jacob, np.transpose(jacob))
     eigen_val, eigen_vec = LA.eig(a)
 
+    eigen_val[0] = eigen_val[0]/3
+    eigen_val[1] = eigen_val[1]/3
+    eigen_val[2] = eigen_val[2]/3
+
     phi = np.linspace(0, 2*pi)
     theta = np.linspace(-pi/2, pi/2)
     phi, theta=np.meshgrid(phi, theta)
 
-    x = cos(theta) * sin(phi) * eigen_val[0]
-    y = cos(theta) * cos(phi) * eigen_val[1]
-    z = sin(theta) * eigen_val[2]
+    X = cos(theta) * sin(phi) * eigen_val[0]
+    Y = cos(theta) * cos(phi) * eigen_val[1]
+    Z = sin(theta) * eigen_val[2]
 
-    plotly.offline.init_notebook_mode(connected=True)
+    xt = eigen_vec[0][0]*X + eigen_vec[0][1]*Y + eigen_vec[0][2]*Z
+    yt = eigen_vec[1][0]*X + eigen_vec[1][1]*Y + eigen_vec[1][2]*Z
+    zt = eigen_vec[2][0]*X + eigen_vec[2][1]*Y + eigen_vec[2][2]*Z
+
+    coordmat = kin.fwd(robobj,orientation)
+
+    x = xt + coordmat[3][0]
+    y = yt + coordmat[3][1]
+    z = zt + coordmat[3][2]
 
     elip = go.Mesh3d(alphahull = 0,
                     x= x.flatten(),
                     y= y.flatten(),
                     z= z.flatten(),
+                    opacity = 0.5
                     )
 
     data = [elip]
