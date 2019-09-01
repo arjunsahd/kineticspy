@@ -64,4 +64,12 @@ def vel_mani_elip(robobj, orientation):
 
     data = [elip]
 
+    print("Eigen Values are:")
+    print(eigen_val)
+    max_val = np.max(eigen_val)
+    min_val = np.min(eigen_val)
+
+    print("\nManipulability Index: \t")
+    print(math.sqrt(max_val/min_val))
+
     return data
