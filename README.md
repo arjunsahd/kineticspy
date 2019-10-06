@@ -29,10 +29,8 @@ Current func:
 6. Via Points Addition
 
 Current Goals:
-1. add animation
+1. add animation using OpenGL and Plotly
 2. Make the library suitable to be used using DH paramaeters
-3. Add various options for plotting Robot
- 
-PS: I am new to open source XD
+
 
 Note: Functions using inverse kinematics functions are only available for 3DOF arm.
