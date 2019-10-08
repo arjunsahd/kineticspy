@@ -39,3 +39,5 @@ Current Goals:
 
 
 Note: Functions using inverse kinematics functions are only available for 3DOF arm.
+
+Thanks for reading!
