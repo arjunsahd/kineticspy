@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dcfb28a7-c00e-4142-9702-d27e0e701509" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/examples/example.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kineticspy/out.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/Manipulative_elipsoid.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/examples/Manipulative_elipsoid.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kineticspy/measure.py" beforeDir="false" afterPath="$PROJECT_DIR$/kineticspy/measure.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/trial.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/examples/trial.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kineticspy/kin.py" beforeDir="false" afterPath="$PROJECT_DIR$/kineticspy/kin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kineticspy/robobj/robot.py" beforeDir="false" afterPath="$PROJECT_DIR$/kineticspy/robobj/robot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kineticspy/trajectory.py" beforeDir="false" afterPath="$PROJECT_DIR$/kineticspy/trajectory.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,9 +37,13 @@
     </option>
   </component>
   <component name="ProjectId" id="1PttP4iitOVkBrrnZeDYVCAxWyq" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../artificial-invaders-2019-robot-backend" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -64,5 +72,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

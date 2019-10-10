@@ -5,10 +5,11 @@ import copy
 
 class Robot(object):
 
-    def __init__(self, jointno, jointaxismat, lenmat):
+    def __init__(self, jointno, jointaxismat, lenmat,cmdmat):
         self.jointno = jointno
         self.jointaxismat = jointaxismat
         self.lenmat = lenmat
+        self.cmdmat = cmdmat
 
         lenvecmat = np.zeros((jointno, 4))
         i = 0

@@ -78,6 +78,8 @@ def viapts(robobj, mat):
         thetamat[i] = kin.inv(robobj, [x_arr[i], y_arr[i], z_arr[i]])
         i = i + 1
 
+    robobj.cmdmat = thetamat
+
     return calctrajectorymat(thetamat, robobj)
 
 

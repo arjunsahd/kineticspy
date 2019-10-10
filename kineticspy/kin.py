@@ -52,7 +52,7 @@ def rotation_matrix(robobj, thetalist):
 
     return rotmat
 
-
+#computes analytical solution for inverse
 def inv(robobj, coord):
 
     [x, y, z] = coord
