@@ -4,15 +4,20 @@ Open nbviewer, if graphics are not loaded on the webpage. This is because of the
 
 ## Installation
 pip install kineticspy
+
 ## About
 Robotics is a very vast branch of engineering involoving computer, mechanical and electrical engineering.
+
+## Industrial Application
+Analyse the work space and task space of robotic manipulators. It is used to safety assesment of industrial robots. Especially when Co-Robots are picking up.
 
 While there are many libraries available online for robotics. They are not that easy to use for beginners.
 To create interest in robotics we need to provide easier visualisation platforms so that the interest can
 nurture.
 
 The aim of this project is to do exactly that. By using plotly I am providing a 3D toggle to visualize 
-the trajectory and orientation of the robo. Plus analyse the kinetics of the robot. EVerything is very easy and systematic to use.
+the trajectory and orientation of the robo. Plus analyse the kinetics of the robot.
+
 
 As currently plotly's 3D animation toolbox is still under development we are limited to matplotlib for
 animation of the robot.
@@ -29,10 +34,10 @@ Current func:
 6. Via Points Addition
 
 Current Goals:
-1. add animation
+1. add animation using OpenGL and Plotly
 2. Make the library suitable to be used using DH paramaeters
-3. Add various options for plotting Robot
- 
-PS: I am new to open source XD
+
 
 Note: Functions using inverse kinematics functions are only available for 3DOF arm.
+
+Thanks for reading!
